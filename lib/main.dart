@@ -1,10 +1,80 @@
+import 'dart:ui';
+
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:news_app/config/notifications/handle_notifications.dart';
+import 'package:news_app/config/notifications/local_notification_manager.dart';
+import 'package:news_app/feature/Dashboard/dashboard_one.dart';
+//import 'package:news_app/config/notifications/local_notifications_manager.dart';
+import 'package:news_app/feature/auth/presentation/login_page.dart';
 import 'package:news_app/feature/news/presentation/all_news.dart';
 import 'package:news_app/feature/news/presentation/news_page.dart';
+import 'package:news_app/feature/profile/presentation/profile.dart';
+//import 'package:news_app/test.dart';
+import 'package:upgrader/upgrader.dart';
+
+//import 'config/network/handle_notifications.dart';
+//import 'feature/profile/presentation/profile.dart';
+//import 'feature/auth/presentation/profile.dart';
 
 void main() {
+
+  intializeApp();
+
   runApp(const MyApp());
 }
+
+Future<void> intializeApp() async {
+
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
+  ///11. for notifications
+// LocalNotificationManager.initialize();
+
+  HandleNotifications.registerBackgroundMessageHandler();
+
+  HandleNotifications.notificationMethods();
+
+  HandleNotifications.handleNotification();
+
+  ///Initialize crashlytics
+
+  handleCrashAnalystics();
+}
+
+void handleCrashAnalystics(){
+  const fatalError = true;
+  // Non-async exceptions
+  FlutterError.onError = (errorDetails) {
+    if (fatalError) {
+      // If you want to record a "fatal" exception
+      FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
+      // ignore: dead_code
+    } else {
+      // If you want to record a "non-fatal" exception
+      FirebaseCrashlytics.instance.recordFlutterError(errorDetails);
+    }
+  };
+  // Async exceptions
+  PlatformDispatcher.instance.onError = (error, stack) {
+    if (fatalError) {
+      // If you want to record a "fatal" exception
+      FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+      // ignore: dead_code
+    } else {
+      // If you want to record a "non-fatal" exception
+      FirebaseCrashlytics.instance.recordError(error, stack);
+    }
+    return true;
+  };
+  runApp(MyApp());
+}
+
+
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -12,19 +82,38 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return UpgradeAlert(
+      child: ScreenUtilInit(
+        designSize: Size(428, 920),
+        minTextAdapt: true,
+        splitScreenMode: false,
+        builder: (BuildContext context, Widget? child) {
+
+          return  MaterialApp(
+            title: 'Flutter Demo',
+            theme: ThemeData(
+
+              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+              useMaterial3: true,
+            ),
+            //home: const MyHomePage(title: 'Flutter Demo Home Page'),
+            home:Profile (
+              name:"Saphal Rai",
+              email:'saphalrai53@gmail.com',
+              photoUrl: '',
+            ),
+            // home: DashboardOne(),
+          );
+        },
       ),
-      home: AllNews(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
+
+
 
   final String title;
 
@@ -36,43 +125,27 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
-    print("Counter : ${_counter++}");
-    //setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-   // });
+
+    print("Counter :${_counter++}");
+    setState(() {
+
+    });
   }
 
   @override
   Widget build(BuildContext context) {
+    print("Inside the build method");
 
-    print("Inside Build Method");
     return Scaffold(
       appBar: AppBar(
-         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
+
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
+
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
@@ -94,5 +167,5 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-//48d68333e2c442ef8884bd57af96ae4e
 // Future async await
+//c3a61af9631548308c50deb4727a9669

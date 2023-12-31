@@ -23,6 +23,7 @@ class NetworkRequest{
     //500 server down
      //print ("server response: ${response.data['articles']}");
 
+
     print("Server Response : ${response.statusCode}");
 
      return NewsModel.fromJson(response.data).articles?? [];

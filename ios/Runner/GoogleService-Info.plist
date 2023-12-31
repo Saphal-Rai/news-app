@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>264449866621-dvaqa5jjiji0a7vc2b84hb9f0c91e7j3.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.264449866621-dvaqa5jjiji0a7vc2b84hb9f0c91e7j3</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>264449866621-3tcqkrdibogluu8mfg18kbkoh05v916c.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBRRNoMn50jiMNSomftypXkBdVwpupLu-w</string>
+	<key>GCM_SENDER_ID</key>
+	<string>264449866621</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.news-app</string>
+	<key>PROJECT_ID</key>
+	<string>xaranewsapp-488ad</string>
+	<key>STORAGE_BUCKET</key>
+	<string>xaranewsapp-488ad.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:264449866621:ios:6a121e7d9749ad85c1aa14</string>
+</dict>
+</plist>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">xaranewsapp</string>
+    <string name="facebook_app_id">332126475813324</string>
+    <string name="fb_login_protocol_scheme">fb332126475813324</string>
+    <string name="facebook_client_token">ad86385b3465d6078b8755852576273a</string>
+
+
+</resources>

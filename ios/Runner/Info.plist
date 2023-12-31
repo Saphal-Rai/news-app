@@ -47,5 +47,37 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<!-- Put me in the [my_project]/ios/Runner/Info.plist file -->
+    <!-- Google Sign-in Section -->
+    <key>CFBundleURLTypes</key>
+    <array>
+    	<dict>
+    		<key>CFBundleTypeRole</key>
+    		<string>Editor</string>
+    		<key>CFBundleURLSchemes</key>
+    		<array>
+    	    	<string>fb332126475813324</string>
+    			<!-- Copied from GoogleService-Info.plist key REVERSED_CLIENT_ID -->
+    			<string>com.googleusercontent.apps.264449866621-dvaqa5jjiji0a7vc2b84hb9f0c91e7j3</string>
+    		</array>
+    	</dict>
+    </array>
+    <!-- End of the Google Sign-in Section -->
+    <!-- Facebook login -->
+
+
+        <key>FacebookAppID</key>
+        <string>332126475813324</string>
+        <key>FacebookClientToken</key>
+        <string>ad86385b3465d6078b8755852576273a</string>
+        <key>FacebookDisplayName</key>
+        <string>xaranewsapp</string>
+
+
+        <key>LSApplicationQueriesSchemes</key>
+        <array>
+          <string>fbapi</string>
+          <string>fb-messenger-share-api</string>
+        </array>
 </dict>
 </plist>

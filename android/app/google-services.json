@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "264449866621",
+    "project_id": "xaranewsapp-488ad",
+    "storage_bucket": "xaranewsapp-488ad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:264449866621:android:d3c4ea0ec6e72962c1aa14",
+        "android_client_info": {
+          "package_name": "com.example.news_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "264449866621-3tcqkrdibogluu8mfg18kbkoh05v916c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.news_app",
+            "certificate_hash": "3150387a5decea664073b511b647f1d1b3acd322"
+          }
+        },
+        {
+          "client_id": "264449866621-t2ni3ohvic55fi9ld4pppaavha90j6oc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbDr3laAmKtOzm1PREikjd2w87pwU-rdw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "264449866621-t2ni3ohvic55fi9ld4pppaavha90j6oc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
